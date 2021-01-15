@@ -11,7 +11,7 @@
 //
 //
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity ^0.6.9;
 library Pairing {
     struct G1Point {
         uint X;
@@ -90,13 +90,16 @@ library Pairing {
     /// e(p1[0], p2[0]) *  .... * e(p1[n], p2[n]) == 1
     /// For example pairing([P1(), P1().negate()], [P2(), P2()]) should
     /// return true.
-    function pairing(G1Point[] memory p1, G2Point[] memory p2) internal view returns (bool) {
-        require(p1.length == p2.length,"pairing-lengths-failed");
-        uint elements = p1.length;
-        uint inputSize = elements * 6;
-        uint[] memory input = new uint[](inputSize);
-        for (uint i = 0; i < elements; i++)
-        {
+    function pairing(G1Point[] memory p1, G2Point[] memory p2)
+        internal
+        view
+        returns (bool)
+    {
+        require(p1.length == p2.length, "pairing-lengths-failed");
+        uint256 elements = p1.length;
+        uint256 inputSize = elements * 6;
+        uint256[] memory input = new uint256[](inputSize);
+        for (uint256 i = 0; i < elements; i++) {
             input[i * 6 + 0] = p1[i].X;
             input[i * 6 + 1] = p1[i].Y;
             input[i * 6 + 2] = p2[i].X[0];
@@ -104,15 +107,25 @@ library Pairing {
             input[i * 6 + 4] = p2[i].Y[0];
             input[i * 6 + 5] = p2[i].Y[1];
         }
-        uint[1] memory out;
+        uint256[1] memory out;
         bool success;
         // solium-disable-next-line security/no-inline-assembly
         assembly {
-            success := staticcall(sub(gas(), 2000), 8, add(input, 0x20), mul(inputSize, 0x20), out, 0x20)
+            success := staticcall(
+                sub(gas(), 2000),
+                8,
+                add(input, 0x20),
+                mul(inputSize, 0x20),
+                out,
+                0x20
+            )
             // Use "invalid" to make gas estimation work
-            switch success case 0 { invalid() }
+            switch success
+                case 0 {
+                    invalid()
+                }
         }
-        require(success,"pairing-opcode-failed");
+        require(success, "pairing-opcode-failed");
         return out[0] != 0;
     }
     /// Convenience method for a pairing check for two pairs.
@@ -211,6 +224,27 @@ contract YourContract {
             uint[2] memory c,
             uint[1] memory input
         ) public  returns (bool r) {
+        Proof memory proof;
+        proof.A = Pairing.G1Point(a[0], a[1]);
+        proof.B = Pairing.G2Point([b[0][0], b[0][1]], [b[1][0], b[1][1]]);
+        proof.C = Pairing.G1Point(c[0], c[1]);
+        uint[] memory inputValues = new uint[](input.length);
+        for(uint i = 0; i < input.length; i++){
+            inputValues[i] = input[i];
+        }
+        if (verify(inputValues, proof) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /// @return r  bool true if proof is valid
+    function verifyProofDumb(
+            uint[2] memory a,
+            uint[2][2] memory b,
+            uint[2] memory c,
+            uint[1] memory input) 
+      public view  returns (bool r) {
         Proof memory proof;
         proof.A = Pairing.G1Point(a[0], a[1]);
         proof.B = Pairing.G2Point([b[0][0], b[0][1]], [b[1][0], b[1][1]]);
