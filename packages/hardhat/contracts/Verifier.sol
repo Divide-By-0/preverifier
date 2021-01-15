@@ -161,7 +161,7 @@ library Pairing {
         return pairing(p1, p2);
     }
 }
-contract YourContract {
+contract Verifier {
     using Pairing for *;
     struct VerifyingKey {
         Pairing.G1Point alfa1;
@@ -210,7 +210,7 @@ contract YourContract {
             uint[2][2] memory b,
             uint[2] memory c,
             uint[1] memory input
-        ) public  returns (bool r) {
+        ) public view returns (bool r) {
         Proof memory proof;
         proof.A = Pairing.G1Point(a[0], a[1]);
         proof.B = Pairing.G2Point([b[0][0], b[0][1]], [b[1][0], b[1][1]]);
