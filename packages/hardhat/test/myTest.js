@@ -23,6 +23,7 @@ describe("My Dapp", function () {
   //     });
   //   });
   // });
+  var assert = require("assert");
 
   describe("Verifier", function () {
     let verifier;
@@ -70,12 +71,14 @@ describe("My Dapp", function () {
   });
   describe("MessageValidator", function () {
     let verifier;
-    describe("Verifier_Test", function () {
+    describe("MessageValidator_Test", function () {
       it("Works", async function () {
-        const Verifier = await ethers.getContractFactory("Verifier");
-        verifier = await Verifier.deploy();
+        const MessageValidator = await ethers.getContractFactory(
+          "MessageValidator"
+        );
+        messageValidator = await MessageValidator.deploy();
 
-        const answer = await verifier.verifyProof(
+        const answer = await messageValidator.checkProof(
           [0, 0],
           [
             [0, 0],
@@ -85,7 +88,7 @@ describe("My Dapp", function () {
           [0]
         );
         assert(answer == 0); // Fail
-        const answerValid = await verifier.verifyProof(
+        const answerValid = await messageValidator.checkProof(
           [
             "4361411925896965367605188229838998950263853136855346992467135739885658267696",
             "13257099796368377884239053786098576403291418420491903938520425819032342163253",
