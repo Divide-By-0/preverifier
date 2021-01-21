@@ -39,7 +39,7 @@ contract MessageValidator {
         uint256[2][2] memory _b,
         uint256[2] memory _c,
         uint256[1] memory _input
-    ) internal returns (bool success) {
+    ) public returns (bool success) {
         Verifier verifier = new Verifier();
         require(verifier.verifyProof(_a, _b, _c, _input),
             "Failed init proof check"
