@@ -1,1 +1,1 @@
-module.exports = ["Verifier","YourContract"];
+module.exports = ["MessageValidator","Verifier"];

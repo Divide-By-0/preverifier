@@ -22,11 +22,11 @@
         "type": "uint256[1]"
       }
     ],
-    "name": "verifyMoveProof",
+    "name": "verifyProof",
     "outputs": [
       {
         "internalType": "bool",
-        "name": "",
+        "name": "r",
         "type": "bool"
       }
     ],

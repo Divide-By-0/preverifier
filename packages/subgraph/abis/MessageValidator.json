@@ -100,7 +100,7 @@
             "type": "tuple"
           }
         ],
-        "internalType": "struct YourContract.Proof",
+        "internalType": "struct MessageValidator.Proof",
         "name": "proof",
         "type": "tuple"
       },

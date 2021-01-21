@@ -161,8 +161,9 @@ library Pairing {
         return pairing(p1, p2);
     }
 }
-contract Verifier {
+library Verifier {
     using Pairing for *;
+
     struct VerifyingKey {
         Pairing.G1Point alfa1;
         Pairing.G2Point beta2;
@@ -225,4 +226,5 @@ contract Verifier {
             return false;
         }
     }
+
 }
