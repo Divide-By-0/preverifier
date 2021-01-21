@@ -78,16 +78,16 @@ describe("My Dapp", function () {
         );
         messageValidator = await MessageValidator.deploy();
 
-        const answer = await messageValidator.checkProof(
-          [0, 0],
-          [
-            [0, 0],
-            [0, 0],
-          ],
-          [0, 0],
-          [0]
-        );
-        assert(answer == 0); // Fail
+        // const answer = await messageValidator.checkProof(
+        //   [0, 0],
+        //   [
+        //     [0, 0],
+        //     [0, 0],
+        //   ],
+        //   [0, 0],
+        //   [0]
+        // );
+        // assert(answer == 0); // Fail
         const answerValid = await messageValidator.checkProof(
           [
             "4361411925896965367605188229838998950263853136855346992467135739885658267696",
