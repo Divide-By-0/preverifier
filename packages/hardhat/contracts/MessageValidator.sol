@@ -1,9 +1,17 @@
 // ctrll pagedn pageup
-pragma solidity ^0.6.7;
+pragma solidity ^0.5.16;
 pragma experimental ABIEncoderV2;
 import "./Verifier.sol";
 
 contract MessageValidator {
+    //////////////
+    ///  TYPES ///
+    //////////////
+    struct Proof {
+        Pairing.G1Point A;
+        Pairing.G2Point B;
+        Pairing.G1Point C;
+    }
 
     //////////////
     ///  VARS  ///
@@ -13,13 +21,9 @@ contract MessageValidator {
     uint256 pfsVerified;
 
     //////////////
-    ///  TYPES ///
+    ///  LIBS  ///
     //////////////
-    struct Proof {
-        Pairing.G1Point A;
-        Pairing.G2Point B;
-        Pairing.G1Point C;
-    }
+    // using Verifier for Proof;
 
     //////////////
     /// EVENTS ///
@@ -35,9 +39,9 @@ contract MessageValidator {
         uint256[2][2] memory _b,
         uint256[2] memory _c,
         uint256[1] memory _input
-    ) internal returns (bool success) {
-        // Verifier verifier = new Verifier();
-        require(Verifier.verifyProof(_a, _b, _c, _input),
+    ) public returns (bool success) {
+        Verifier verifier = new Verifier();
+        require(verifier.verifyProof(_a, _b, _c, _input),
             "Failed init proof check"
         );
         pfsVerified += 1;
