@@ -13,21 +13,6 @@
     "type": "event"
   },
   {
-    "constant": true,
-    "inputs": [],
-    "name": "DISABLE_ZK_CHECK",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "constant": false,
     "inputs": [
       {
@@ -51,7 +36,7 @@
         "type": "uint256[1]"
       }
     ],
-    "name": "checkProof",
+    "name": "checkSigCheckProof",
     "outputs": [
       {
         "internalType": "bool",

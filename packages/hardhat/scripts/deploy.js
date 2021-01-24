@@ -8,9 +8,11 @@ const R = require("ramda");
 const main = async () => {
   console.log("\n\n 📡 Deploying...\n");
 
-  // const yourContract = await deploy("YourContract"); // <-- add in constructor args like line 16 vvvv
-  //const verifier = await deploy("Verifier"); // <-- add in constructor args like line 16 vvvv
+  // const yourContract = await deploy("YourContract");
+  const sigCheckVerifier = await deploy("SigCheckVerifier");
   const messageValidator = await deploy("MessageValidator");
+  const hashVerifier = await deploy("HashVerifier");
+  const registrationValidator = await deploy("RegistrationValidator");
   // const exampleToken = await deploy("ExampleToken")
   // const examplePriceOracle = await deploy("ExamplePriceOracle")
   // const smartContractWallet = await deploy("SmartContractWallet",[exampleToken.address,examplePriceOracle.address])

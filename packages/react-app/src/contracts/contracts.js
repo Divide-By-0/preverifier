@@ -1,1 +1,1 @@
-module.exports = ["MessageValidator","Verifier"];
+module.exports = ["HashVerifier","MessageValidator","RegistrationValidator","SigCheckVerifier","Verifier"];

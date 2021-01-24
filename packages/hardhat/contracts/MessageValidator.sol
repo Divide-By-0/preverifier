@@ -1,7 +1,7 @@
 // ctrll pagedn pageup
-pragma solidity ^0.5.16;
+pragma solidity >=0.5.16 <=0.7.3;
 pragma experimental ABIEncoderV2;
-import "./Verifier.sol";
+import "./SigCheckVerifier.sol";
 
 contract MessageValidator {
     //////////////
@@ -17,13 +17,12 @@ contract MessageValidator {
     ///  VARS  ///
     //////////////
     mapping(bytes32 => bool) public hashIsVerified; // public auto assigns a getter
-    bool public DISABLE_ZK_CHECK;
     uint256 pfsVerified;
 
     //////////////
     ///  LIBS  ///
     //////////////
-    // using Verifier for Proof;
+    // using SigCheckVerifier for Proof;
 
     //////////////
     /// EVENTS ///
@@ -34,13 +33,13 @@ contract MessageValidator {
     ////////////////
     /// Functions //
     ////////////////
-    function checkProof(
+    function checkSigCheckProof(
         uint256[2] memory _a,
         uint256[2][2] memory _b,
         uint256[2] memory _c,
         uint256[1] memory _input
     ) public returns (bool success) {
-        Verifier verifier = new Verifier();
+        SigCheckVerifier verifier = new SigCheckVerifier();
         require(verifier.verifyProof(_a, _b, _c, _input),
             "Failed init proof check"
         );
@@ -53,7 +52,7 @@ contract MessageValidator {
         uint[2] memory p1 = [proof.A.X, proof.A.Y];
         uint[2][2] memory p2 = [proof.B.X, proof.B.Y];
         uint[2] memory p3 = [proof.C.X, proof.C.Y];
-        require(checkProof(p1, p2, p3, [input]), "Proof invalid!");
+        require(checkSigCheckProof(p1, p2, p3, [input]), "Proof invalid!");
         hashIsVerified[keccak256(abi.encode(message))] = true;
         return true;
     }
