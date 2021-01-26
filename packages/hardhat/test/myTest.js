@@ -7,6 +7,37 @@ use(solidity);
 
 describe("My Dapp", function () {
   let myContract;
+  console.log("Running");
+  const pairing = await deploy("Pairing");
+  const contractStorage = await deploy("ContractStorage");
+
+  const sigCheckVerifier = await deploy(
+    "SigCheckVerifier",
+    [],
+    {},
+    {
+      Pairing: pairing.address,
+    }
+  );
+
+  const hashVerifier = await deploy(
+    "HashVerifier",
+    [],
+    {},
+    {
+      Pairing: pairing.address,
+    }
+  );
+
+  const coreValidator = await deploy(
+    "CoreValidator",
+    [],
+    {},
+    {
+      SigCheckVerifier: sigCheckVerifier.address,
+      HashVerifier: hashVerifier.address,
+    }
+  );
 
   // describe("YourContract", function () {
   //   it("Should deploy YourContract", async function () {
@@ -130,3 +161,33 @@ describe("My Dapp", function () {
     });
   });
 });
+
+const deploy = async (
+  contractName,
+  _args = [],
+  overrides = {},
+  libraries = {}
+) => {
+  console.log(` 🛰  Deploying: ${contractName}`);
+
+  const contractArgs = _args || [];
+
+  const contractArtifacts = await ethers.getContractFactory(contractName, {
+    libraries: libraries,
+  });
+  const deployed = await contractArtifacts.deploy(...contractArgs, overrides);
+  const encoded = abiEncodeArgs(deployed, contractArgs);
+  fs.writeFileSync(`artifacts/${contractName}.address`, deployed.address);
+
+  console.log(
+    " 📄",
+    chalk.cyan(contractName),
+    "deployed to:",
+    chalk.magenta(deployed.address)
+  );
+
+  if (!encoded || encoded.length <= 2) return deployed;
+  fs.writeFileSync(`artifacts/${contractName}.args`, encoded.slice(2));
+
+  return deployed;
+};

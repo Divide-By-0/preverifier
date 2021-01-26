@@ -12,8 +12,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.7.6;
+import "./Pairing.sol";
 
-library Verifier {
+library SigCheckVerifier {
   using Pairing for *;
   struct VerifyingKey {
     Pairing.G1Point alfa1;
