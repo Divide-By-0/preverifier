@@ -11,13 +11,27 @@ const main = async () => {
   // const yourContract = await deploy("YourContract");
   const pairing = await deploy("Pairing");
   const contractStorage = await deploy("ContractStorage");
+  const sigCheckG1Points_0_to_209 = await deploy("SigCheckG1Points_0_to_209");
+  const sigCheckG1Points_210_to_419 = await deploy(
+    "SigCheckG1Points_210_to_419"
+  );
+  const sigCheckG1Points_420_to_629 = await deploy(
+    "SigCheckG1Points_420_to_629"
+  );
+  const sigCheckG1Points_630_to_826 = await deploy(
+    "SigCheckG1Points_630_to_826"
+  );
 
   const sigCheckVerifier = await deploy(
     "SigCheckVerifier",
     [],
     {},
     {
-      Pairing: pairing.address,
+      SigCheckG1Points_0_to_209: sigCheckG1Points_0_to_209.address,
+      SigCheckG1Points_210_to_419: sigCheckG1Points_210_to_419.address,
+      SigCheckG1Points_420_to_629: sigCheckG1Points_420_to_629.address,
+      SigCheckG1Points_630_to_826: sigCheckG1Points_630_to_826.address,
+      // Pairing: pairing.address,
     }
   );
 
@@ -26,7 +40,7 @@ const main = async () => {
     [],
     {},
     {
-      Pairing: pairing.address,
+      // Pairing: pairing.address,
     }
   );
 

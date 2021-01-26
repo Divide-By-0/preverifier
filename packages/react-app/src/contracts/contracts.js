@@ -1,1 +1,1 @@
-module.exports = ["HashVerifier","MessageValidator","RegistrationValidator","SigCheckVerifier","Verifier"];
+module.exports = ["ContractStorage","CoreValidator","HashVerifier","Pairing","SigCheckG1Points_0_to_209","SigCheckG1Points_210_to_419","SigCheckG1Points_420_to_629","SigCheckG1Points_630_to_826","SigCheckVerifier"];
