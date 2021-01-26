@@ -9,10 +9,39 @@ const main = async () => {
   console.log("\n\n 📡 Deploying...\n");
 
   // const yourContract = await deploy("YourContract");
-  const sigCheckVerifier = await deploy("SigCheckVerifier");
-  const messageValidator = await deploy("MessageValidator");
-  const hashVerifier = await deploy("HashVerifier");
-  const registrationValidator = await deploy("RegistrationValidator");
+  const pairing = await deploy("Pairing");
+  const contractStorage = await deploy("ContractStorage");
+
+  const sigCheckVerifier = await deploy(
+    "SigCheckVerifier",
+    [],
+    {},
+    {
+      Pairing: pairing.address,
+    }
+  );
+
+  const hashVerifier = await deploy(
+    "HashVerifier",
+    [],
+    {},
+    {
+      Pairing: pairing.address,
+    }
+  );
+
+  const coreValidator = await deploy(
+    "CoreValidator",
+    [],
+    {},
+    {
+      SigCheckVerifier: sigCheckVerifier.address,
+      HashVerifier: hashVerifier.address,
+    }
+  );
+
+  // const coreValidator = await deploy("CoreValidator");
+
   // const exampleToken = await deploy("ExampleToken")
   // const examplePriceOracle = await deploy("ExamplePriceOracle")
   // const smartContractWallet = await deploy("SmartContractWallet",[exampleToken.address,examplePriceOracle.address])
@@ -44,11 +73,19 @@ const main = async () => {
   );
 };
 
-const deploy = async (contractName, _args = [], overrides = {}) => {
+const deploy = async (
+  contractName,
+  _args = [],
+  overrides = {},
+  libraries = {}
+) => {
   console.log(` 🛰  Deploying: ${contractName}`);
 
   const contractArgs = _args || [];
-  const contractArtifacts = await ethers.getContractFactory(contractName);
+
+  const contractArtifacts = await ethers.getContractFactory(contractName, {
+    libraries: libraries,
+  });
   const deployed = await contractArtifacts.deploy(...contractArgs, overrides);
   const encoded = abiEncodeArgs(deployed, contractArgs);
   fs.writeFileSync(`artifacts/${contractName}.address`, deployed.address);

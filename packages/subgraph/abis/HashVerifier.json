@@ -1,6 +1,5 @@
 [
   {
-    "constant": true,
     "inputs": [
       {
         "internalType": "uint256[2]",
@@ -31,7 +30,6 @@
         "type": "bool"
       }
     ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   }

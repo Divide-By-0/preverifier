@@ -11,7 +11,9 @@
 //
 //
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.5.16;
+pragma solidity 0.7.6;
+
+// Deprecated, use specific verifiers instead
 library Pairing {
     struct G1Point {
         uint X;
@@ -210,7 +212,7 @@ contract Verifier {
             uint[2] memory a,
             uint[2][2] memory b,
             uint[2] memory c,
-            uint[2] memory input
+            uint[1] memory input
         ) public view returns (bool r) {
         Proof memory proof;
         proof.A = Pairing.G1Point(a[0], a[1]);
