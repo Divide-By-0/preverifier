@@ -14,6 +14,19 @@
   },
   {
     "inputs": [],
+    "name": "MAX_CONFESSIONS",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "MAX_GROUPS",
     "outputs": [
       {
@@ -36,6 +49,24 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "groupName",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "userHash",
+        "type": "uint256"
+      }
+    ],
+    "name": "addUserToGroup",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -65,7 +96,7 @@
     "outputs": [
       {
         "internalType": "bool",
-        "name": "success",
+        "name": "",
         "type": "bool"
       }
     ],
@@ -99,11 +130,24 @@
     "outputs": [
       {
         "internalType": "bool",
-        "name": "success",
+        "name": "",
         "type": "bool"
       }
     ],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "confessionCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -117,8 +161,18 @@
     "name": "confessions",
     "outputs": [
       {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
         "internalType": "string",
         "name": "text",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "group",
         "type": "string"
       },
       {
@@ -149,14 +203,48 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getConfessions",
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "message",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "groupName",
+        "type": "string"
+      }
+    ],
+    "name": "createMessage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "confessionID",
+        "type": "uint256"
+      }
+    ],
+    "name": "getConfessionX",
     "outputs": [
       {
         "components": [
           {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
             "internalType": "string",
             "name": "text",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "group",
             "type": "string"
           },
           {
@@ -165,9 +253,9 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct ContractStorage.Message[]",
-        "name": "messages",
-        "type": "tuple[]"
+        "internalType": "struct ContractStorage.Message",
+        "name": "",
+        "type": "tuple"
       }
     ],
     "stateMutability": "view",
@@ -175,10 +263,50 @@
   },
   {
     "inputs": [],
-    "name": "getGroups",
+    "name": "getConfessions",
     "outputs": [
       {
         "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "group",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "verified",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct ContractStorage.Message[10]",
+        "name": "",
+        "type": "tuple[10]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getGroupZero",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
           {
             "internalType": "uint256",
             "name": "passwordHash",
@@ -195,9 +323,95 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct ContractStorage.Group[]",
-        "name": "groups",
-        "type": "tuple[]"
+        "internalType": "struct ContractStorage.Group",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getGroups",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "passwordHash",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256[10]",
+            "name": "users",
+            "type": "uint256[10]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "userCount",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ContractStorage.Group[10]",
+        "name": "",
+        "type": "tuple[10]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "groupCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "groupExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "groupIDs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -213,6 +427,11 @@
     ],
     "name": "groups",
     "outputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
       {
         "internalType": "uint256",
         "name": "passwordHash",
@@ -243,28 +462,6 @@
   {
     "inputs": [
       {
-        "components": [
-          {
-            "internalType": "uint256[2]",
-            "name": "p1",
-            "type": "uint256[2]"
-          },
-          {
-            "internalType": "uint256[2][2]",
-            "name": "p2",
-            "type": "uint256[2][2]"
-          },
-          {
-            "internalType": "uint256[2]",
-            "name": "p3",
-            "type": "uint256[2]"
-          }
-        ],
-        "internalType": "struct CoreValidator.Proof",
-        "name": "proof",
-        "type": "tuple"
-      },
-      {
         "internalType": "uint256[825]",
         "name": "input",
         "type": "uint256[825]"
@@ -284,7 +481,7 @@
     "outputs": [
       {
         "internalType": "bool",
-        "name": "success",
+        "name": "",
         "type": "bool"
       }
     ],
@@ -357,7 +554,7 @@
     "outputs": [
       {
         "internalType": "bool",
-        "name": "success",
+        "name": "",
         "type": "bool"
       }
     ],

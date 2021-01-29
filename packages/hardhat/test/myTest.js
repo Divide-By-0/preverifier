@@ -107,20 +107,30 @@ describe("My Dapp", async function () {
         await this.coreValidator.createGroup("asdf", 1);
         console.log("Group created!");
       });
+      it("Get Group", async function () {
+        console.log("Starting getter");
+        await this.coreValidator.createGroup("a54sdf", 14);
+        console.log("Created group");
+        let groupZero = await this.coreValidator.getGroupZero();
+        console.log("Group zero is: ", groupZero);
+        let groups = await this.coreValidator.getGroups();
+        console.log("Group got: ", groups);
+      });
     });
-    describe("CoreValidator_Test", async function () {
+    describe("Proofs", async function () {
       it("Sig Check Proof Works", async function () {
+        console.log("Starting sig check");
         const sig_check_proof_json = JSON.parse(
-          fs.readFileSync("json/sigCheckProof.json")
+          fs.readFileSync(__dirname + "./json/sigCheckProof.json")
         );
         const sig_check_public_json = JSON.parse(
-          fs.readFileSync("json/sigCheckPublic.json")
+          fs.readFileSync(__dirname + "./json/sigCheckPublic.json")
         );
         const hash_proof_json = JSON.parse(
-          fs.readFileSync("json/sigCheckProof.json")
+          fs.readFileSync(__dirname + "./json/sigCheckProof.json")
         );
         const hash_public_json = JSON.parse(
-          fs.readFileSync("json/sigCheckPublic.json")
+          fs.readFileSync(__dirname + "./json/sigCheckPublic.json")
         );
         const pollName = "myPoll";
         const answerValid = await this.coreValidator.verifyAndStoreRegistration(
@@ -140,7 +150,7 @@ describe("My Dapp", async function () {
           hash_public_json[0]
         );
         assert(isRegistered == 1); // Pass
-        console.log(answerValid);
+        console.log("Test works");
       });
     });
   });

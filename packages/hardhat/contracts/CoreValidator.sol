@@ -35,7 +35,7 @@ contract CoreValidator is ContractStorage {
     uint256[2][2] memory _b,
     uint256[2] memory _c,
     uint256[825] memory _input
-  ) public returns (bool success) {
+  ) public returns (bool) {
     // SigCheckVerifier verifier = new SigCheckVerifier();
     require(
       SigCheckVerifier.verifyProof(_a, _b, _c, _input),
@@ -47,22 +47,19 @@ contract CoreValidator is ContractStorage {
   }
 
   function verifyAndAddMessage(
-    Proof memory proof,
     uint256[825] memory input,
     string memory message,
     string memory groupName
-  ) public returns (bool success) {
+  ) public returns (bool) {
+    /*
     require(
       checkSigCheckProof(proof.p1, proof.p2, proof.p3, input),
       "Proof invalid!"
     );
+    */
 
     // TODO: Assert message and hash are the same
-    // Adds message to confessions list
-    Message memory newMessage;
-    newMessage.text = message;
-    confessions[confessionCount] = newMessage;
-    confessionCount += 1;
+    createMessage(message, groupName);
     return true;
   }
 
@@ -74,7 +71,7 @@ contract CoreValidator is ContractStorage {
     uint256[2][2] memory _b,
     uint256[2] memory _c,
     uint256[2] memory _input
-  ) public returns (bool success) {
+  ) public returns (bool) {
     // HashVerifier verifier = new HashVerifier();
     require(
       HashVerifier.verifyProof(_a, _b, _c, _input),
@@ -94,8 +91,12 @@ contract CoreValidator is ContractStorage {
     Proof memory passwordHashProof,
     uint256 hashedPass,
     string memory groupName
-  ) public returns (bool success) {
-    require(hashedKey == groups[groupIDs[groupName]].passwordHash);
+  ) public returns (bool) {
+    require(
+      hashedPass == groups[groupIDs[groupName]].passwordHash,
+      "Wrong pass hash!"
+    );
+    /*
     require(
       checkHashProof(
         passwordHashProof.p1,
@@ -105,6 +106,8 @@ contract CoreValidator is ContractStorage {
       ),
       "Password proof invalid!"
     );
+    */
+    /*
     require(
       checkHashProof(
         keyHashProof.p1,
@@ -114,6 +117,7 @@ contract CoreValidator is ContractStorage {
       ),
       "Key proof invalid!"
     );
+    */
     addUserToGroup(groupName, hashedKey);
     return true;
   }
@@ -123,9 +127,12 @@ contract CoreValidator is ContractStorage {
   // SETTERS
   function createGroup(string memory groupName, uint256 passwordHash) public {
     // Make new group
-    require(!groupExists[groupName]);
-    Group memory newGroup;
+    require(!groupExists[groupName], "Group already exists!");
+    require(groupCount < MAX_GROUPS, "Too many groups!");
+    Group storage newGroup;
     newGroup.passwordHash = passwordHash;
+    newGroup.name = groupName;
+    newGroup.userCount = 0;
 
     // Assign the group an ID and make it exist
     // Then increment the number of groups
@@ -135,24 +142,52 @@ contract CoreValidator is ContractStorage {
     groupCount += 1;
   }
 
-  function addUserToGroup(string memory groupName, uint256 userHash)
-    private
-    returns (Group[] memory groups)
-  {
+  function addUserToGroup(string memory groupName, uint256 userHash) public {
     uint256 groupID = groupIDs[groupName];
     uint256 userCount = groups[groupID].userCount;
-    require(userCount < MAX_USERS);
+    require(userCount < MAX_USERS, "Too many users!");
 
     groups[groupID].users[userCount] = userHash;
     groups[groupID].userCount++;
   }
 
+  // TODO: make private
+  function createMessage(string memory message, string memory groupName)
+    public
+  {
+    confessions[confessionCount] = Message({
+      id: confessionCount,
+      text: message,
+      group: groupName,
+      verified: false
+    });
+    confessionCount += 1;
+  }
+
   // GETTERS
-  function getConfessions() public view returns (Message[] memory messages) {
+
+  function getConfessions()
+    public
+    view
+    returns (Message[MAX_CONFESSIONS] memory)
+  {
     return confessions;
   }
 
-  function getGroups() public view returns (Group[] memory groups) {
+  function getConfessionX(uint256 confessionID)
+    public
+    view
+    returns (Message memory)
+  {
+    return confessions[confessionID];
+  }
+
+  function getGroups() public view returns (Group[MAX_GROUPS] memory) {
     return groups;
+  }
+
+  function getGroupZero() public view returns (Group memory) {
+    require(groupCount > 0, "Not enough groups!");
+    return groups[0];
   }
 }

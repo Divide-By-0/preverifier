@@ -199,20 +199,20 @@ function App(props) {
                 and give you a form to interact with it locally
             */}
             <Contract
-              name="YourContract"
+              name="CoreValidator"
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}
               blockExplorer={blockExplorer}
             />
 
-            <Contract
-              name="Verifier"
+            {/* <Contract
+              name="ContractStorage"
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}
               blockExplorer={blockExplorer}
-            />
+            /> */}
 
             {/* Uncomment to display and interact with an external contract (DAI on mainnet):
             <Contract
