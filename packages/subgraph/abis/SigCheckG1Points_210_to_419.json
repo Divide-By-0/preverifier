@@ -1,0 +1,27 @@
+[
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "X",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "Y",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Pairing.G1Point[]",
+        "name": "IC",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "assignPoints",
+    "outputs": [],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
