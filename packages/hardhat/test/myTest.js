@@ -59,46 +59,46 @@ describe("My Dapp", async function () {
         HashVerifier: this.hashVerifier.address,
       }
     );
-    await this.coreValidator.createGroup("asdf", 1);
-    console.log(await this.coreValidator.getConfessions());
-    console.log(await this.coreValidator.getGroups());
-    console.error("65");
-    const sig_check_proof_json = JSON.parse(
-      fs.readFileSync("json/sigCheckProof.json")
-    );
-    const sig_check_public_json = JSON.parse(
-      fs.readFileSync("json/sigCheckPublic.json")
-    );
-    const hash_proof_json = JSON.parse(
-      fs.readFileSync("json/sigCheckProof.json")
-    );
-    const hash_public_json = JSON.parse(
-      fs.readFileSync("json/sigCheckPublic.json")
-    );
-    console.error("78");
-    const pollName = "myPoll";
-    const answerValid = await this.coreValidator.verifyAndStoreRegistration(
-      ...callArgsFromProofAndSignals(hash_proof_json, hash_public_json),
-      ...callArgsFromProofAndSignals(
-        sig_check_proof_json,
-        sig_check_public_json
-      ),
-      pollName
-    );
-    console.error("88");
+    // await this.coreValidator.createGroup("asdf", 1);
+    // console.log(await this.coreValidator.getConfessions());
+    // console.log(await this.coreValidator.getGroups());
+    // console.error("65");
+    // const sig_check_proof_json = JSON.parse(
+    //   fs.readFileSync("json/sigCheckProof.json")
+    // );
+    // const sig_check_public_json = JSON.parse(
+    //   fs.readFileSync("json/sigCheckPublic.json")
+    // );
+    // const hash_proof_json = JSON.parse(
+    //   fs.readFileSync("json/sigCheckProof.json")
+    // );
+    // const hash_public_json = JSON.parse(
+    //   fs.readFileSync("json/sigCheckPublic.json")
+    // );
+    // console.error("78");
+    // const pollName = "myPoll";
+    // const answerValid = await this.coreValidator.verifyAndStoreRegistration(
+    //   ...callArgsFromProofAndSignals(hash_proof_json, hash_public_json),
+    //   ...callArgsFromProofAndSignals(
+    //     sig_check_proof_json,
+    //     sig_check_public_json
+    //   ),
+    //   pollName
+    // );
+    // console.error("88");
 
-    const addedMessage = await this.coreValidator.verifyAndAddMessage(
-      ...callArgsFromProofAndSignals(hash_proof_json, hash_public_json),
-      "message"
-    );
-    const isRegistered = await this.coreValidator.checkIfHashRegisteredForPoll(
-      pollName,
-      hash_public_json[0]
-    );
-    assert(isRegistered == 1); // Pass
-    console.error("99");
-    console.log(answerValid);
-    // console.log("Done with init!");
+    // const addedMessage = await this.coreValidator.verifyAndAddMessage(
+    //   ...callArgsFromProofAndSignals(hash_proof_json, hash_public_json),
+    //   "message"
+    // );
+    // const isRegistered = await this.coreValidator.checkIfHashRegisteredForPoll(
+    //   pollName,
+    //   hash_public_json[0]
+    // );
+    // assert(isRegistered == 1); // Pass
+    // console.error("99");
+    // console.log(answerValid);
+    console.log("Done with init!");
   });
 
   describe("CoreValidator Tests", async function () {
