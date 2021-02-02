@@ -462,6 +462,28 @@
   {
     "inputs": [
       {
+        "components": [
+          {
+            "internalType": "uint256[2]",
+            "name": "p1",
+            "type": "uint256[2]"
+          },
+          {
+            "internalType": "uint256[2][2]",
+            "name": "p2",
+            "type": "uint256[2][2]"
+          },
+          {
+            "internalType": "uint256[2]",
+            "name": "p3",
+            "type": "uint256[2]"
+          }
+        ],
+        "internalType": "struct CoreValidator.Proof",
+        "name": "proof",
+        "type": "tuple"
+      },
+      {
         "internalType": "uint256[825]",
         "name": "input",
         "type": "uint256[825]"

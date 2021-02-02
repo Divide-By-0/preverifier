@@ -47,16 +47,14 @@ contract CoreValidator is ContractStorage {
   }
 
   function verifyAndAddMessage(
+    uint256[2] memory a,
+    uint256[2][2] memory b,
+    uint256[2] memory c,
     uint256[825] memory input,
     string memory message,
     string memory groupName
   ) public returns (bool) {
-    /*
-    require(
-      checkSigCheckProof(proof.p1, proof.p2, proof.p3, input),
-      "Proof invalid!"
-    );
-    */
+    require(checkSigCheckProof(a, b, c, input), "Proof invalid!");
 
     // TODO: Assert message and hash are the same
     createMessage(message, groupName);
@@ -142,6 +140,7 @@ contract CoreValidator is ContractStorage {
     groupCount += 1;
   }
 
+  // TODO: make private
   function addUserToGroup(string memory groupName, uint256 userHash) public {
     uint256 groupID = groupIDs[groupName];
     uint256 userCount = groups[groupID].userCount;
@@ -179,6 +178,7 @@ contract CoreValidator is ContractStorage {
     view
     returns (Message memory)
   {
+    require(confessionCount > confessionID, "Not enough confessions!");
     return confessions[confessionID];
   }
 

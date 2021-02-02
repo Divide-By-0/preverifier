@@ -102,35 +102,38 @@ describe("My Dapp", async function () {
   });
 
   describe("CoreValidator Tests", async function () {
-    describe("Getters and setters", async function () {
-      it("Create Group", async function () {
-        await this.coreValidator.createGroup("asdf", 1);
-        console.log("Group created!");
-      });
-      it("Get Group", async function () {
-        console.log("Starting getter");
-        await this.coreValidator.createGroup("a54sdf", 14);
-        console.log("Created group");
-        let groupZero = await this.coreValidator.getGroupZero();
-        console.log("Group zero is: ", groupZero);
-        let groups = await this.coreValidator.getGroups();
-        console.log("Group got: ", groups);
-      });
-    });
+    // describe("Getters and setters", async function () {
+    //   it("Create Group", async function () {
+    //     await this.coreValidator.createGroup("asdf", 1);
+    //     console.log("Group created!");
+    //   });
+    //   it("Get Group", async function () {
+    //     console.log("Starting getter");
+    //     await this.coreValidator.createGroup("a54sdf", 14);
+    //     console.log("Created group");
+    //     let groupZero = await this.coreValidator.getGroupZero();
+    //     console.log("Group zero is: ", groupZero);
+    //     let groups = await this.coreValidator.getGroups();
+    //     console.log("Group got: ", groups);
+    //   });
+    // });
     describe("Proofs", async function () {
       it("Sig Check Proof Works", async function () {
-        console.log("Starting sig check");
+        console.log(
+          "Starting sig check",
+          __dirname + "/json/sigCheckProof.json"
+        );
         const sig_check_proof_json = JSON.parse(
-          fs.readFileSync(__dirname + "./json/sigCheckProof.json")
+          fs.readFileSync(__dirname + "/json/sigCheckProof.json")
         );
         const sig_check_public_json = JSON.parse(
-          fs.readFileSync(__dirname + "./json/sigCheckPublic.json")
+          fs.readFileSync(__dirname + "/json/sigCheckPublic.json")
         );
         const hash_proof_json = JSON.parse(
-          fs.readFileSync(__dirname + "./json/sigCheckProof.json")
+          fs.readFileSync(__dirname + "/json/hashProof.json")
         );
         const hash_public_json = JSON.parse(
-          fs.readFileSync(__dirname + "./json/sigCheckPublic.json")
+          fs.readFileSync(__dirname + "/json/hashPublic.json")
         );
         const pollName = "myPoll";
         const answerValid = await this.coreValidator.verifyAndStoreRegistration(
@@ -142,7 +145,10 @@ describe("My Dapp", async function () {
           pollName
         );
         const addedMessage = await this.coreValidator.verifyAndAddMessage(
-          ...callArgsFromProofAndSignals(hash_proof_json, hash_public_json),
+          ...callArgsFromProofAndSignals(
+            sig_check_proof_json,
+            sig_check_public_json
+          ),
           "message"
         );
         const isRegistered = await this.coreValidator.checkIfHashRegisteredForPoll(
