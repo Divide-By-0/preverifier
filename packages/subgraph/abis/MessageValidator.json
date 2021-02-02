@@ -13,16 +13,37 @@
     "type": "event"
   },
   {
-    "inputs": [],
-    "name": "DISABLE_ZK_CHECK",
+    "inputs": [
+      {
+        "internalType": "uint256[2]",
+        "name": "_a",
+        "type": "uint256[2]"
+      },
+      {
+        "internalType": "uint256[2][2]",
+        "name": "_b",
+        "type": "uint256[2][2]"
+      },
+      {
+        "internalType": "uint256[2]",
+        "name": "_c",
+        "type": "uint256[2]"
+      },
+      {
+        "internalType": "uint256[2]",
+        "name": "_input",
+        "type": "uint256[2]"
+      }
+    ],
+    "name": "checkSigCheckProof",
     "outputs": [
       {
         "internalType": "bool",
-        "name": "",
+        "name": "success",
         "type": "bool"
       }
     ],
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -100,14 +121,14 @@
             "type": "tuple"
           }
         ],
-        "internalType": "struct YourContract.Proof",
+        "internalType": "struct MessageValidator.Proof",
         "name": "proof",
         "type": "tuple"
       },
       {
-        "internalType": "uint256",
+        "internalType": "uint256[2]",
         "name": "input",
-        "type": "uint256"
+        "type": "uint256[2]"
       },
       {
         "internalType": "string",

@@ -1,0 +1,1000 @@
+ 1077  cd host/code3
+ 1078  cd hist/code3
+ 1079  ls
+ 1080  ./run oct7
+ 1081  cd list
+ 1082  grep CCC *
+ 1083  grep ZLAB *
+ 1084  grep SMLR *
+ 1085  grep TDOC *
+ 1086  grep SE *
+ 1087  grep LSCC *
+ 1088  grep ARGX *
+ 1089  grep BNTX *
+ 1090  grep TNDM *
+ 1091  grep SLP *
+ 1092  grep SEDG *
+ 1093  grep QDEL *
+ 1094  grep SEDG *
+ 1095  grep CFI *
+ 1096  grep MDB *
+ 1097  grep NIO *
+ 1098  more oct1.20.allocation.in
+ 1099  emacs oct2.20.allocation.in 
+ 1100  cd list
+ 1101  cd ~/hist/code3
+ 1102  ./run oct21
+ 1103  cd ~/hist/code3
+ 1104  cd /usr/local/ib/src/com/ib/samples/list/
+ 1105  ls
+ 1106  emacs oct3.20.portfolio.in 
+ 1107  cd /usr/local/ib/src/com/ib/samples/list/
+ 1108  ls
+ 1109  mv *~ junk
+ 1110  ls
+ 1111  more oct2.20.orders.out 
+ 1112  cp oct2.20.orders.out oct3.20.orders.out
+ 1113  cp oct2.20.portfolio.in oct3.20.portfolio.in 
+ 1114  cp oct2.20.allocation.in oct3.20.allocation.in
+ 1115  emacs oct3.20.orders.out 
+ 1116  diff oct2.20.portfolio.in oct3.20.portfolio.in
+ 1117  cd ~/hist/code3
+ 1118  cd ~/hist/code3 /usr/
+ 1119  cd /usr/local/ib/src/com/ib/samples/list/
+ 1120  diff oct1.20.allocation.in out2.20.allocation.in
+ 1121  diff oct1.20.allocation.in oct2.20.allocation.in 
+ 1122  diff oct1.20.portfolio.in oct2.20.portfolio.in 
+ 1123  cd ~/hist/logs
+ 1124  ls -l oct21*
+ 1125  cd ~/hist/logs /usr/
+ 1126  cd /usr/local/ib/src/com/ib/samples/list/
+ 1127  diff oct2.20.allocation.in oct3.20.allocation.in
+ 1128  exit
+ 1129  cd /usr/local/ib/src/com/ib/samples/list/
+ 1130  emacs nov1.20.orders.out
+ 1131  cd /usr/local/ib/src/com/ib/samples/list/
+ 1132  ls
+ 1133  ls -l oct*
+ 1134  cp oct3.20.portfolio.in nov1.20.portfolio.in
+ 1135  cp oct3.20.allocation.in nov1.20.allocation.in
+ 1136  cp oct3.20.orders.out nov1.20.orders.out
+ 1137  emacs nov1.20.orders.out 
+ 1138  ls
+ 1139  mv *~ junk
+ 1140  ls
+ 1141  diff oct2.20.orders.out "#oct2.20.orders.out#" 
+ 1142  more oct2.20.orders.out 
+ 1143  mv "#oct2.20.orders.out#" oct2.20.orders.out 
+ 1144  ls
+ 1145  cp nov1.20.orders.out nov2.20.orders.out
+ 1146  cp nov1.20.portfolio.in nov2.20.portfolio.in 
+ 1147  cp nov1.20.allocation.in nov2.20.allocation.in 
+ 1148  ls
+ 1149  git status
+ 1150  git add sep*
+ 1151  git add oct*
+ 1152  git add nov*
+ 1153  git status
+ 1154  git commit -m "add data files"
+ 1155  git push
+ 1156  cd /usr/local/ib/src/com/ib/samples/list/
+ 1157  cd hist/code3
+ 1158  ./run nov4
+ 1159  ls ../data/temp
+ 1160  ls ../data/*feat2*
+ 1161  ls ../data/*.data
+ 1162  ./run nov4
+ 1163  cd hist/code3
+ 1164  ./run nov19
+ 1165  cd hist/code3
+ 1166  ./run nov19
+ 1167  cd host/code3
+ 1168  cd host
+ 1169  cd hist
+ 1170  cd data
+ 1171  ls -l temp
+ 1172  ls
+ 1173  ls -l | grep 18
+ 1174  ls -l | grep 19
+ 1175  cd hist
+ 1176  cd data
+ 1177  ls -l | grep 19
+ 1178  ls -l | grep 20
+ 1179  cd hist/code3
+ 1180  ./run nov20
+ 1181  cd /usr/local/ib/src/com/ib/samples/
+ 1182  ls
+ 1183  cd list/
+ 1184  emacs nov2.20.allocation.in 
+ 1185  cp nov2.20.portfolio.in nov3.20.portfolio.in 
+ 1186  cp nov2.20.allocation.in nov3.20.allocation.in 
+ 1187  cp nov2.20.orders.out nov3.20.orders.out 
+ 1188  cd hist/code3
+ 1189  cd data
+ 1190  cd /usr/local/ib/src/com/ib/samples/list
+ 1191  ls
+ 1192  ls -l nov*
+ 1193  emacs nov2.20.orders.out 
+ 1194  cd ~/
+ 1195  emacs ipo &
+ 1196  emacs ipo 
+ 1197  cd hist/data
+ 1198  ls
+ 1199  ls -l
+ 1200  wc historical.seclist
+ 1201  wc current.seclist
+ 1202  cat current.seclist ~/ipo > c1
+ 1203  wc c1
+ 1204  cat c1 | sort | uniq > c2
+ 1205  wc c2
+ 1206  mv current.seclist current.seclist.nov20.20
+ 1207  mv c2 current.seclist
+ 1208  cp historical.seclist ~/ipo > c1
+ 1209  cat c1 | sort | uniq > c2
+ 1210  wc c2
+ 1211  wc c1
+ 1212  cat historical.seclist ~/ipo > c1
+ 1213  wc c1
+ 1214  cat c1 | sort | uniq > c2
+ 1215  wc c2
+ 1216  cat historical.seclist current.seclist > c1
+ 1217  cat c1 | sort | uniq > c2
+ 1218  wc c2
+ 1219  wc historical.seclist
+ 1220  mv historical.seclist historical.seclist.nov20.20
+ 1221  mv c2 historical.seclist
+ 1222  cd ../code3
+ 1223  ./run nov21
+ 1224  cd ../data
+ 1225  ls 
+ 1226  ls -l sym
+ 1227  wc sym
+ 1228  grep SEG sym
+ 1229  grep MRNA sym
+ 1230  grep MRNA *
+ 1231  grep FVRR *
+ 1232  grep BYND *
+ 1233  ls -l sec.dat
+ 1234  wc sec.dat
+ 1235  ls -l sec.dat
+ 1236  ls -l
+ 1237  mkdir old
+ 1238  mv historical.seclist.* old
+ 1239  mv current.seclist.* old
+ 1240  ls
+ 1241  ls -l
+ 1242  mv *gz old
+ 1243  ls
+ 1244  mv market_cap.data.* old
+ 1245  ls
+ 1246  ls -l
+ 1247  cd ../data
+ 1248  cd /usr/local/ib/src/com/ib/samples/list/
+ 1249  ls
+ 1250  emacs nov3.20.portfolio.in 
+ 1251  cd ~/
+ 1252  cd /usr/local/ib/src/com/ib/samples/list/
+ 1253  emacs nov2.20.orders.out 
+ 1254  ls
+ 1255  ls nov*
+ 1256  cp nov2.20.orders.out nov3.20.orders.out 
+ 1257  emacs nov3.20.orders.out 
+ 1258  cp nov3.20.orders.out dec1.20.orders.out
+ 1259  wc nov3*
+ 1260  cp nov3.20.allocation.in dec1.20.allocation.in
+ 1261  cp nov3.20.portfolio.in dec1.20.portfolio.in
+ 1262  mv *~ junk
+ 1263  ls
+ 1264  emacs dec1.20.orders.out 
+ 1265  cd /usr/local/ib/src/com/ib/samples/list/
+ 1266  ls
+ 1267  emacs dec1.20.orders.out
+ 1268  cp dec1.20.allocation.in dec2.20.allocation.in
+ 1269  cp dec1.20.portfolio.in dec2.20.portfolio.in
+ 1270  cp dec1.20.orders.out dec2.20.orders.out
+ 1271  cd /usr/local/ib/src/com/ib/samples/list/
+ 1272  emacs dec1.20.orders.out
+ 1273  cp dec1.20.orders.out dec2.20.orders.out 
+ 1274  cp dec1.20.allocation.in dec2.20.allocation.in 
+ 1275  cp dec1.20.portfolio.in dec2.20.portfolio.in 
+ 1276  ls *~
+ 1277  mv *~ junk
+ 1278  ls
+ 1279  git status
+ 1280  git add nov2.20*
+ 1281  git add nov3.20*
+ 1282  git add dec1.*
+ 1283  git add dec2.*
+ 1284  git status
+ 1285  rm ../orders/#PlaceCyrilOrders.java# 
+ 1286  git status
+ 1287  git commit -m "update data files"
+ 1288  git push
+ 1289  cd /usr/local/ib/src/com/ib/samples/list/
+ 1290  ls
+ 1291  more dec2.20.portfolio.in 
+ 1292  cd /usr/local/ib/src/com/ib/samples/list/
+ 1293  cd ~/hist/feat2/
+ 1294  ./run dec12
+ 1295  cd ../code3
+ 1296  ./run dec12
+ 1297  cd ../code3
+ 1298  cd /usr/local/ib/src/com/ib/samples/list/
+ 1299  ls
+ 1300  ls -l dec
+ 1301  ls -l dec*
+ 1302  emacs dec2.20.orders.out 
+ 1303  cd ../code3
+ 1304  cd ~/hist/code3
+ 1305  ./run dec13
+ 1306  cd ~/hist/code3
+ 1307  cd /usr/local/ib/src/com/ib/samples/list/
+ 1308  ls
+ 1309  more dec1.20.portfolio.in 
+ 1310  emacs dec2.20.portfolio.in 
+ 1311  cp dec2.20.portfolio.in dec3.20.portfolio.in 
+ 1312  cp dec2.20.orders.out dec3.20.orders.out 
+ 1313  rm dec2.20.allocation.in 
+ 1314  wc dec*
+ 1315  cd /usr/local/ib/src/com/ib/samples/list/
+ 1316  emacs dec2.20.orders.out 
+ 1317  git status
+ 1318  git add dec3.*
+ 1319  git status
+ 1320  git rm dec2.20.allocation.in 
+ 1321  git add dec.20.orders.out
+ 1322  git add dec2.20.orders.out
+ 1323  git add  dec2.20.portfolio.in
+ 1324  git status
+ 1325  git commit -m "add data files"
+ 1326  git push
+ 1327  ls
+ 1328  cd software/
+ 1329  ls
+ 1330  cd
+ 1331  cd auquan
+ 1332  pwd
+ 1333  ls
+ 1334  ls -l auquan*
+ 1335  cd auquantoolbox/
+ 1336  ls
+ 1337  more README.
+ 1338  more README.md 
+ 1339  python my_trading_params.py 
+ 1340  pip install -U auquan_toolbox
+ 1341  python my_trading_params.py 
+ 1342  ls
+ 1343  du -a | grep problem1
+ 1344  python problem1.py 
+ 1345  pip install -r requirements.txt
+ 1346  pip install -r requirements.txt --use-feature=2020-resolver
+ 1347  unzip problem_template.zip 
+ 1348  python qq17p1_template.py 
+ 1349  activate python2
+ 1350  conda info --env
+ 1351  activate py2
+ 1352  conda activate python2
+ 1353  more ~/.login
+ 1354  more ~/.bashrc
+ 1355  conda update conda
+ 1356  conda update -n myenv --all
+ 1357  conda update -n conda --all
+ 1358  cd /usr/local/anaconda3/envs
+ 1359  ls
+ 1360  cd ..
+ 1361  conda install anaconda-clean
+ 1362  cd
+ 1363  ls
+ 1364  cd /usr/local
+ 1365  ls
+ 1366  rm -rf anaconda3
+ 1367  apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+ 1368  sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+ 1369  bash Anaconda3-2020.11-Linux-x86_64.sh 
+ 1370  python
+ 1371  python2
+ 1372  conda create --name py2 python=2.7
+ 1373  which conda
+ 1374  source ~/.bashrc
+ 1375  conda create --name py2 python=2.7
+ 1376  conda create --name py3 python=3.5
+ 1377  conda activate py2
+ 1378  pip install -U auquan-qq1-toolbox
+ 1379  cd ~/auquantoolbox/
+ 1380  pip install -r requirements.txt 
+ 1381  pip uninstall rlgarage
+ 1382  pip uninstall "rlgarage 2019.2.dev0"
+ 1383  pip uninstall rlgarage=2019.2.dev0
+ 1384  pip uninstall rlgarage==2019.2.dev0
+ 1385  pip install -r requirements.txt 
+ 1386  pip install -U auquan-qq1-toolbox
+ 1387  pip install requestspip install requestspip install requests
+ 1388  pip install requests
+ 1389  pip install -U auquan-qq1-toolbox
+ 1390  pip install tensorboardX
+ 1391  pip install -U auquan-qq1-toolbox
+ 1392  ls
+ 1393  python qq17p1_template.py 
+ 1394  pip install auquan_coursera_toolbox.problem1_trading_params
+ 1395  python problem1.py 
+ 1396  cd /
+ 1397  du -a | grep problem1
+ 1398  python /home/cyril/software/anaconda3/envs/py2/lib/python2.7/site-packages/auquan_qq1_toolbox/problem1_execution_system.py
+ 1399  cd /home/cyril/software/anaconda3/envs/py2/lib/python2.7/site-packages/auquan_qq1_toolbox/
+ 1400  ls
+ 1401  ls -l
+ 1402  more problem1_execution_system.py
+ 1403  cd
+ 1404  cd ~/auquantoolbox/
+ 1405  pip install auquan-qq1-toolbox
+ 1406  du -a | grep problem1
+ 1407  pip install -U auquan_toolbox
+ 1408  pip install pandas
+ 1409  pip install bs4 plotly
+ 1410  emacs meanreversion.py &
+ 1411  emacs meanreversion.py 
+ 1412  python meanreversion.py 
+ 1413  python2 meanreversion.py 
+ 1414  pip install matplotlib
+ 1415  python2 meanreversion.py 
+ 1416  emacs meanreversion.py
+ 1417  df
+ 1418  du -sk *
+ 1419  rm -rf UnrealEngine_4.21
+ 1420  cd Downloads/
+ 1421  ls -l Anaconda*
+ 1422  rm -rf Anaconda2-4.4.0-Linux-x86_64.sh 
+ 1423  df
+ 1424  cd ..
+ 1425  du -a . | sort -n -r | head -n 20
+ 1426  cd u
+ 1427  ls -l
+ 1428  du -sk *
+ 1429  ls -l
+ 1430  cd old10
+ 1431  ls
+ 1432  ls -l
+ 1433  du -sk *
+ 1434  cd old1
+ 1435  ls
+ 1436  ls -l
+ 1437  du -sk *
+ 1438  cd ..
+ 1439  s
+ 1440  ls
+ 1441  cd ..
+ 1442  du -sk *
+ 1443  cd junk
+ 1444  ls
+ 1445  du -sk *
+ 1446  rm -rf NVIDIA_CUDA-7.0_Samples
+ 1447  cd v
+ 1448  ls
+ 1449  cd ..
+ 1450  rm -rf v
+ 1451  cd u2
+ 1452  ls
+ 1453  cd ..
+ 1454  rm -rf u2
+ 1455  df
+ 1456  cd auquantoolbox/
+ 1457  pwd
+ 1458  cd ..
+ 1459  ls
+ 1460  cd acquan/
+ 1461  ls
+ 1462  cd aayus
+ 1463  cd ../aayus
+ 1464  ls
+ 1465  cd ../aayush
+ 1466  ls
+ 1467  du -sk rire5
+ 1468  cd ../aayush
+ 1469  du -sk rire5
+ 1470  cd ..
+ 1471  rm -rf aayus
+ 1472  ls
+ 1473  cd mritoct/
+ 1474  ls
+ 1475  more notes
+ 1476  l
+ 1477  cd ..
+ 1478  ls
+ 1479  du -sk *
+ 1480  cd /usr/local/ib/src/com/ib/samples/list/
+ 1481  more dec3.20.portfolio.in 
+ 1482  cd
+ 1483  pwd
+ 1484  unzip problem_template.zip 
+ 1485  mkdir acquan
+ 1486  cd acquan/
+ 1487  mv ../qq17p1_template.py .
+ 1488  pip install -U auquan-qq1-toolbox
+ 1489  ls
+ 1490  cd
+ 1491  cd /
+ 1492  du -a | grep problem1 
+ 1493  du -a | grep problem1_rolling_train 
+ 1494  cd /
+ 1495  cd /usr/local/ib/src/com/ib/samples/list/
+ 1496  emacs dec2.20.orders.out 
+ 1497  ls dec*
+ 1498  cp dec2.20.portfolio.in dec3.20.portfolio.in 
+ 1499  cd hist/code3
+ 1500  ./run dec23
+ 1501  cd hist/code3
+ 1502  tail ../logs/dec23
+ 1503  tail ../log/dec23
+ 1504  ./run dec24
+ 1505  cd /usr/local/ib/src/com/ib/samples/list/
+ 1506  ls
+ 1507  ls -l dec*
+ 1508  emacs dec3.20.portfolio.in 
+ 1509  ls
+ 1510  cd hist/code3
+ 1511  cd /usr/local/ib/src/com/ib/samples/list/
+ 1512  emacs dec3.20.portfolio.in 
+ 1513  ls
+ 1514  mv dec3.20.portfolio.in dec2.20.portfolio.in 
+ 1515  cp dec3.20.orders.out dec2.20.orders.out 
+ 1516  cp dec2.20.portfolio.in dec3.20.portfolio.in 
+ 1517  mv dec3.20.portfolio.in jan1.21.portfolio.in
+ 1518  mv dec2.20.orders.out jan1.21.orders.out
+ 1519  ls
+ 1520  mv *.20.* 2020
+ 1521  git status
+ 1522  ls 2020/*~
+ 1523  git add 2020/*
+ 1524  git status
+ 1525  git add *.20*
+ 1526  git status
+ 1527  git rm --cached junk/*.20*~
+ 1528  git status
+ 1529  git rm --cached junk/"#*.20*~
+ 1530  "
+ 1531  git rm --cached junk/"#*.20*"
+ 1532  git status
+ 1533  git rm --cached junk/"*.20*"
+ 1534  git status
+ 1535  git add 2020/dec2.20.orders.out
+ 1536  ls 2020/dec*
+ 1537  mv 2020/dec3.20.orders.out 2020/dec2.20.orders.out
+ 1538  git status
+ 1539  git rm 2020/dec3.20.orders.out 
+ 1540  git status
+ 1541  git add 2020/dec2.20.orders.out
+ 1542  git status
+ 1543  git commit -m "move 2020 files to 2020 folder"
+ 1544  git push
+ 1545  ls
+ 1546  mv may2.30.calc junk
+ 1547  ls
+ 1548  openssl version -a
+ 1549  sudo apt install build-essential checkinstall zlib1g-dev -y
+ 1550  sudo apt-get install libssl-dev
+ 1551  mv /lib/x86_64-linux-gnu/libssl.so.1.0.0 /lib/x86_64-linux-gnu/libssl.so.1.0.0_backup2
+ 1552  sudo mv /lib/x86_64-linux-gnu/libssl.so.1.0.0 /lib/x86_64-linux-gnu/libssl.so.1.0.0_backup2
+ 1553  ls
+ 1554  sudo apt-get install libssl-dev
+ 1555  conda install -c conda-forge/label/cf202003 r-cliapp
+ 1556  sudo apt install python3-cliapp
+ 1557  sudo apt-get update
+ 1558  sudo apt-get install python-cliapp
+ 1559  yarn
+ 1560  sudo apt install build-essential checkinstall libssl-dev
+ 1561  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
+ 1562  nvm --version
+ 1563  nvm ls
+ 1564  nvm ls-remote
+ 1565  sudo apt install -y chromium-browser
+ 1566  sudo apt-get upgrade slack-desktop
+ 1567  wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
+ 1568  sudo apt autoremove
+ 1569  sudo apt-get purge linux-image-{3.0.0-12,2.6.3{1-21,2-25,8-{1[012],8}}}
+ 1570  dpkg -l linux-image-\* | grep ^ii
+ 1571  kernelver=$(uname -r | sed -r 's/-[a-z]+//')
+ 1572  dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2}' | grep -ve $kernelver
+ 1573  sudo apt-get purge linux-image-{4.4.0-165-generic,3.0.0-12,2.6.3{1-21,2-25,8-{1[012],8}}}
+ 1574  sudo apt-get autoremove
+ 1575  cd aayush/ethereum/your-next-dapp/
+ 1576  yarn deploy
+ 1577  ifconfig
+ 1578  s
+ 1579  ig
+ 1580  tgit
+ 1581  git
+ 1582  ls
+ 1583  cd aayush
+ 1584  ls
+ 1585  cp * gan_stuff/
+ 1586  ls
+ 1587  mkdir gan_project
+ 1588  mkdir ../gan_project
+ 1589  mv * ../gan_project/
+ 1590  ls
+ 1591  mv ../gan_project/ 
+ 1592  mv ../gan_project/ .
+ 1593  ls
+ 1594  mkdir ethereum
+ 1595  ls
+ 1596  cd ethereum/
+ 1597  ls
+ 1598  git clone https://github.com/austintgriffith/scaffold-eth.git your-next-dapp
+ 1599  cd your-next-dapp/
+ 1600  cd your-next-dapp
+ 1601  yarn install
+ 1602  sudo apr install cmdtest
+ 1603  sudo apt install cmdtest
+ 1604  yarn install
+ 1605  sudo apt update && sudo apt install yarn
+ 1606  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+ 1607  sudo apt install apt-transport-https
+ 1608  sudo apt-get install -y nodejs
+ 1609  yarn
+ 1610  sudo apt uninstall yarn
+ 1611  sudo apt remove yarn
+ 1612  sudo npm install -g yarnpkg
+ 1613  echo "/usr/local/lib64" > /etc/ld.so.conf.d/openssl.conf
+ 1614  sudo echo "/usr/local/lib64" > /etc/ld.so.conf.d/openssl.conf
+ 1615  export LD_LIBRARY_PATH=/usr/lib/
+ 1616  sudo apt-get install --reinstall libexpat1
+ 1617  sudo apt-get install --reinstall libxcb
+ 1618  file /usr/local/lib/
+ 1619  ls /lib/x86_64-linux-gnu
+ 1620  ldconfig -p ldconfig -p 
+ 1621  ldconfig -p 
+ 1622  ldconfig -p | grep 1.0.0
+ 1623  ldconfig -p | grep libssl
+ 1624  mv /lib/x86_64-linux-gnu/libssl.so.1.0.0 /lib/x86_64-linux-gnu/libssl.so.1.0.0_backup
+ 1625  sudo mv /lib/x86_64-linux-gnu/libssl.so.1.0.0 /lib/x86_64-linux-gnu/libssl.so.1.0.0_backup
+ 1626  sudo mv /lib/x86_64-linux-gnu/libssl.so /lib/x86_64-linux-gnu/libssl.so.1.0.0
+ 1627  sudo cp /usr/lib/x86_64-linux-gnu/libssl.so /lib/x86_64-linux-gnu/libssl.so.1.0.0
+ 1628  sudo cp /usr/lib/x86_64-linux-gnu/libssl3.so /lib/x86_64-linux-gnu/libssl.so.1.0.0
+ 1629  ldconfig -p | grep libssl
+ 1630  npm
+ 1631  sudo apt install npm
+ 1632  npm install -g yarn
+ 1633  sudo apt-get update && sudo apt-get upgrade
+ 1634  yarn install
+ 1635  cd ..
+ 1636  git clone git://git.liw.fi/cliapp/
+ 1637  cd cliapp
+ 1638  python setup.py install
+ 1639  cd ../ethereum/your-next-dapp/
+ 1640  ls
+ 1641  yarn install
+ 1642  cd ../../
+ 1643  cd ethereum/your-next-dapp/
+ 1644  conda install cliapp
+ 1645  conda install -c conda-forge r-cliapp
+ 1646  yarn deploy
+ 1647  cd ..
+ 1648  mkdir hardhat-tutorial 
+ 1649  cd hardhat-tutorial 
+ 1650  npm init --yes 
+ 1651  npm install --save-dev hardhat 
+ 1652  cd ../
+ 1653  sudo apt install ./zoom_amd64.deb
+ 1654  cd Downloads/
+ 1655  sudo apt install ./zoom_amd64.deb
+ 1656  sudo apt-get update && sudo apt-get install spotify-client
+ 1657  snap install spotify
+ 1658  sudo apt install snapd
+ 1659  sudo apt install chromium-browser
+ 1660  cd aayush/ethereum/
+ 1661  cd your-next-dapp/
+ 1662  vim package.l
+ 1663  vim package.json 
+ 1664  sudo apt install vim
+ 1665  sudo apt install software-properties-common apt-transport-https wget
+ 1666  wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+ 1667  ls
+ 1668  sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+ 1669  sudo apt update
+ 1670  sudo apt install code
+ 1671  cd ..
+ 1672  code .
+ 1673  cd hardhat-tutorial/
+ 1674  yarn install
+ 1675  cd ../your-next-dapp/
+ 1676  ls
+ 1677  yarn deploy
+ 1678  curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+ 1679  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+ 1680  sudo apt-get update && sudo apt-get install spotify-client
+ 1681  yarn deploy
+ 1682  git add .
+ 1683  git commit -am "added contracts" && git push
+ 1684  yarn deploy
+ 1685  git status
+ 1686  git checkout -b reenterancy
+ 1687  git add .
+ 1688  git status
+ 1689  git reset packages/subgraph/abis/TestTodo.json
+ 1690  git atatus
+ 1691  git status
+ 1692  git commit -am "added files"
+ 1693  yarn deploy
+ 1694  sudo reboot
+ 1695  ls
+ 1696  cd aayush/
+ 1697  ls
+ 1698  cd ethereum/
+ 1699  ls
+ 1700  cd your-next-dapp/
+ 1701  ls
+ 1702  git status
+ 1703  git push
+ 1704  git push --set-upstream origin reenterancy
+ 1705  vim ~/.ssh/id_rsa.pub 
+ 1706  git push
+ 1707  git push --set-upstream origin reenterancy
+ 1708  git remote add my-fork git@github.com:Divide-By-0/scaffold-eth.git
+ 1709  git fetch my-fork
+ 1710  git push my-fork
+ 1711  git reset --soft HEAD~1
+ 1712  git status
+ 1713  git log
+ 1714  git reset --soft HEAD~1
+ 1715  git status
+ 1716  git checkout HEAD -- packages/subgraph/abis/YourContract.json
+ 1717  git reset HEAD -- packages/hardhat/contracts/TestTodo.sol
+ 1718  git status
+ 1719  git reset HEAD -- packages/hardhat/contracts/YourContract.sol
+ 1720  git status
+ 1721  git commit -m "added reenterancy and attacker contracts" && git push -f
+ 1722  git push --set-upstream origin reenterancy -f
+ 1723  git config --global credential.helper store
+ 1724  git push --set-upstream my-fork reenterancy -f
+ 1725  nvm -v
+ 1726  npm -v
+ 1727  nvm install 12
+ 1728  nvm install 12.0.0
+ 1729  cd ..
+ 1730  mkdir snark-walkthrough
+ 1731  cd snark-walkthrough/
+ 1732  npm init
+ 1733  ls
+ 1734  npm install snarkjs circom
+ 1735  npm install -g snarkjs circom
+ 1736  git status
+ 1737  snarkjs groth16 prove --help
+ 1738  snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
+ 1739  snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First contribution" -v
+ 1740  snarkjs powersoftau verify pot12_0003.ptau
+ 1741  snarkjs powersoftau beacon pot12_0003.ptau pot12_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n="Final Beacon"
+ 1742  snarkjs powersoftau contribute pot12_0001.ptau pot12_0002.ptau --name="Second contribution" -v -e="some random text"
+ 1743  snarkjs powersoftau contribute pot12_0001.ptau pot12_0003.ptau --name="third contribution" -v -e="some random text3"
+ 1744  ls
+ 1745  snarkjs powersoftau beacon pot12_0003.ptau pot12_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n="Final Beacon"
+ 1746  snarkjs powersoftau prepare phase2 pot12_beacon.ptau pot12_final.ptau -v
+ 1747  snarkjs powersoftau verify pot12_final.ptau
+ 1748  ls
+ 1749  touch circuit.circomcircom circuit.circom --r1cs --wasm --sym -v
+ 1750  circom circuit.circom --r1cs --wasm --sym -v
+ 1751  vi circuit.circom
+ 1752  circom circuit.circom --r1cs --wasm --sym -v
+ 1753  vi circuit.circom
+ 1754  circom circuit.circom --r1cs --wasm --sym -v
+ 1755  whcih circom
+ 1756  which circom
+ 1757  circom
+ 1758  source ~/.bashrc
+ 1759  circom
+ 1760  cd aayush/
+ 1761  cd ethereum/
+ 1762  ls
+ 1763  mkdir week1_solidity
+ 1764  mv your-next-dapp/ week1_solidity/
+ 1765  mv hardhat-tutorial/ week1_solidity/
+ 1766  ls
+ 1767  cd verifier-prehash/
+ 1768  yarn chain
+ 1769  rm -rf package.json 
+ 1770  cd ..
+ 1771  rm -rf verifier-prehash/
+ 1772  git clone git@github.com:Divide-By-0/preverifier.git
+ 1773  cd preverifier/
+ 1774  yarn install
+ 1775  nvm install 12.0.0
+ 1776  yarn install
+ 1777  yarn start
+ 1778  cd aayush/ethereum/week1_solidity/your-next-dapp/
+ 1779  yarn chain
+ 1780  ipconfig
+ 1781  ifconfig
+ 1782  hostname -i
+ 1783  hostname
+ 1784  ipconfig
+ 1785  sudo apt install upconfig
+ 1786  sudo apt install ipconfig
+ 1787  ip address
+ 1788  ifconfig
+ 1789  netstat -an
+ 1790  sudo lsof -i -P -n | grep LISTEN
+ 1791  ls
+ 1792  cd aayush/
+ 1793  ;s
+ 1794  ls
+ 1795  cd ethereum/
+ 1796  ls
+ 1797  git clone https://github.com/nulven/zk-polling 
+ 1798  cd aayush/ethereum/preverifier/
+ 1799  yarn deploy
+ 1800  cd aayush/ethereum/preverifier/
+ 1801  yarn chain
+ 1802  cd ..
+ 1803  ls
+ 1804  cd aayush/ethereum/verifier-prehash/
+ 1805  yarn deploy
+ 1806  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+ 1807  yarn chain
+ 1808  cd ..
+ 1809  cd preverifier/
+ 1810  yarn chain
+ 1811  cd ../
+ 1812  ls
+ 1813  cd zk-chess/
+ 1814  ls
+ 1815  cd client/
+ 1816  yarn start
+ 1817  vim package.json 
+ 1818  yarn start:dev
+ 1819  cd aayush/
+ 1820  ls
+ 1821  cd eh
+ 1822  cd ethereum/
+ 1823  ls
+ 1824  cd snark-walkthrough/
+ 1825  ls
+ 1826  circom
+ 1827  hash -r
+ 1828  circom
+ 1829  which circom
+ 1830  nvm use 12.0.0
+ 1831  which circom
+ 1832  circom
+ 1833  hash -r
+ 1834  circom
+ 1835  vi circuit.
+ 1836  vi circuit.circom 
+ 1837  cat <<EOT > circuit.circom
+ 1838  template Multiplier(n) {
+ 1839      signal private input a;
+ 1840      signal private input b;
+ 1841      signal output c;
+ 1842      signal int[n];
+ 1843      int[0] <== a*a + b;
+ 1844      for (var i=1; i<n; i++) {
+ 1845      int[i] <== int[i-1]*int[i-1] + b;
+ 1846      }
+ 1847      c <== int[n-1];
+ 1848  }
+ 1849  component main = Multiplier(1000);
+ 1850  EOT
+ 1851  ls
+ 1852  vi circuit.circom 
+ 1853  vi circuit.circom circom circuit.circom --r1cs --wasm --sym -v
+ 1854  circom circuit.circom --r1cs --wasm --sym -v
+ 1855  snarkjs r1cs info circuit.r1cs
+ 1856  snarkjs r1cs print circuit.r1cs circuit.sym
+ 1857  snarkjs r1cs export json circuit.r1cs circuit.r1cs.json
+ 1858  snarkjs zkey new circuit.r1cs pot12_final.ptau circuit_0000.zkey
+ 1859  snarkjs zkey contribute circuit_0000.zkey circuit_0001.zkey --name="1st Contributor Name" -v
+ 1860  snarkjs zkey contribute circuit_0001.zkey circuit_0002.zkey --name="Second contribution Name" -v -e="Another random entropy"
+ 1861  snarkjs zkey contribute circuit_0001.zkey circuit_0003.zkey --name="3rd contribution Name" -v -e="Another random entropy3"
+ 1862  snarkjs zkey verify circuit.r1cs pot12_final.ptau circuit_0003.zkey
+ 1863  snarkjs zkey beacon circuit_0003.zkey circuit_final.zkey 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n="Final Beacon phase2"
+ 1864  snarkjs zkey verify circuit.r1cs pot12_final.ptau circuit_final.zkey
+ 1865  snarkjs zkey export verificationkey circuit_final.zkey verification_key.json
+ 1866  cat <<EOT > input.json
+ 1867  {"a": 3, "b": 11}
+ 1868  EOT
+ 1869  snarkjs wtns calculate circuit.wasm input.json witness.wtns
+ 1870  snarkjs wtns debug circuit.wasm input.json witness.wtns circuit.sym --trigger --get --set
+ 1871  snarkjs groth16 prove circuit_final.zkey witness.wtns proof.json public.json
+ 1872  snarkjs groth16 verify verification_key.json public.json proof.json
+ 1873  snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
+ 1874  ls
+ 1875  vim proof.json 
+ 1876  vim public.json 
+ 1877  snarkjs groth16 verify verification_key.json public.json proof.json
+ 1878  ls
+ 1879  vim verifier.sol
+ 1880  ls
+ 1881  cd ..
+ 1882  git clone https://github.com/briangu33/circom-starter.git
+ 1883  ls
+ 1884  cd circom-starter/
+ 1885  ls
+ 1886  code .
+ 1887  yarn
+ 1888  run dev
+ 1889  yarn dev
+ 1890  cd ..
+ 1891  gti clone git@github.com:briangu33/zk-beginner.git
+ 1892  git clone git@github.com:briangu33/zk-beginner.git
+ 1893  cd zk-beginner/
+ 1894  ls
+ 1895  code zkp.js
+ 1896  git clone https://github.com/nulven/zk-browser.git
+ 1897  snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
+ 1898  cd ../snark-walkthrough/
+ 1899  snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
+ 1900  snarkjs zkey export soliditycalldata public.json proof.json
+ 1901  cd ..
+ 1902  git clone https://github.com/austintgriffith/scaffold-eth.git your-next-dapp
+ 1903  git clone https://github.com/austintgriffith/scaffold-eth.git verifier-prehash
+ 1904  cd verifier-prehash/
+ 1905  npm install
+ 1906  yarn start
+ 1907  yarn install
+ 1908  yarn start
+ 1909  ls
+ 1910  cp ../week1_solidity/your-next-dapp/package.json .
+ 1911  yarn start
+ 1912  cd ../preverifier/
+ 1913  yarn start
+ 1914  sudo apt-get install truffle
+ 1915  yarn start
+ 1916  cd aayush/ethereum/
+ 1917  cd you
+ 1918  cd week1_solidity/your-next-dapp/
+ 1919  yarn start
+ 1920  cd ../../verifier-prehash/
+ 1921  yarn install
+ 1922  nvm install 12
+ 1923  nvm install 12.0.0
+ 1924  yarn install
+ 1925  cd ../
+ 1926  ls
+ 1927  cd snark-walkthrough/
+ 1928  ls
+ 1929  snarkjs zkey export soliditycalldata public.json proof.json
+ 1930  cd ../verifier-prehash/
+ 1931  yarn deploy
+ 1932  ls
+ 1933  git status
+ 1934  git remote add origin git@github.com:Divide-By-0/preverifier.git
+ 1935  git remote add myorigin git@github.com:Divide-By-0/preverifier.git
+ 1936  git add .
+ 1937  git commit -am "verified"
+ 1938  git push -u myorigin main
+ 1939  git push -u myorigin master
+ 1940  yarn deploy
+ 1941  yarn deploy --verbose
+ 1942  git commit -am "debugged"
+ 1943  git push
+ 1944  yarn deploy
+ 1945  cd ..
+ 1946  ls
+ 1947  cd preverifier/
+ 1948  yarn deploy
+ 1949  cd ..
+ 1950  git clone https://github.com/briangu33/zk-chess
+ 1951  git checkout 2c7b662840211dc6be341e9a9a6b412bd4b5d4b5
+ 1952  cd zk-chess/
+ 1953  git checkout 2c7b662840211dc6be341e9a9a6b412bd4b5d4b5
+ 1954  git checkout -b test
+ 1955  git status
+ 1956  ls
+ 1957  ./local-deploy.sh l
+ 1958  ./local-deploy.sh
+ 1959  ls
+ 1960  cd eth/
+ 1961  ls
+ 1962  yarn insta
+ 1963  yarn install
+ 1964  cd client/
+ 1965  yarn install
+ 1966  ls
+ 1967  cd ..
+ 1968  ls
+ 1969  ./local-deploy.sh 
+ 1970  npm install -g truffle
+ 1971  ./local-deploy.sh 
+ 1972  reboot
+ 1973  sudo reboot
+ 1974  cd /usr/local/ib/src/com/ib/samples/list/
+ 1975  ls
+ 1976  emacs jan1.21.portfolio.in 
+ 1977  cd aayush/ethereum/week1_solidity/your-next-dapp/
+ 1978  cd /usr/local/ib/src/com/ib/samples/list/
+ 1979  more jan1.21.portfolio.in 
+ 1980  cd ~/hist/code3
+ 1981  cd /usr/local/ib/src/com/ib/samples/list/
+ 1982  ls
+ 1983  emacs jan1.21.portfolio.in 
+ 1984  ls
+ 1985  cp jan1.21.portfolio.in jan2.21.portfolio.in
+ 1986  cp jan1.21.orders.out jan2.21.orders.out
+ 1987  mv *~ junk
+ 1988  ls
+ 1989  cd aayush/ethereum/preverifier/
+ 1990  npm -v
+ 1991  yarn chain
+ 1992  cd aayush/ethereum/preverifier/
+ 1993  yarn start
+ 1994  ls
+ 1995  cd aayush/ethereum/zk-polling/
+ 1996  ls
+ 1997  git pull
+ 1998  git checkout confessions
+ 1999  git commit -am "updated npm version" && git push && git checkout confessions 
+ 2000  git status
+ 2001  git checkout confessions
+ 2002  ls
+ 2003  git merge master
+ 2004  git reset --hard HEAD
+ 2005  git status
+ 2006  git reset --hard HEAD~1
+ 2007  git status
+ 2008  git checkout -b confessions_contracts
+ 2009  ls
+ 2010  cd circuits/
+ 2011  ls
+ 2012  cd hash
+ 2013  ls
+ 2014  circom circuit.circom --r1cs --wasm --sym
+ 2015  sudo npm install -global --unsafe-perm circom
+ 2016  nvm -v
+ 2017  npm -v
+ 2018  nvm use 14
+ 2019  npm -v
+ 2020  node -v
+ 2021  circom
+ 2022  npm install
+ 2023  circom
+ 2024  sudo npm install -global --unsafe-perm circom
+ 2025  RUN npm install -g npm@latest
+ 2026  npm install -g npm@latest
+ 2027  sudo npm install -global --unsafe-perm circom
+ 2028  npm install --save circom snarkjs
+ 2029  circom circuit.circom 
+ 2030  npm -v
+ 2031  circom
+ 2032  cd ..
+ 2033  circom
+ 2034  npm install -g circom
+ 2035  cd circuits/
+ 2036  ls
+ 2037  cd hash
+ 2038  circom circuit.circom --r1cs --wasm --sym
+ 2039  ls
+ 2040  circom circuit.circom -o circuit.json
+ 2041  head circuit.json
+ 2042  ls
+ 2043  snarkjs r1cs info circuit.
+ 2044  snarkjs r1cs info circuit.r1cs 
+ 2045  npm install -g snarkjs
+ 2046  snarkjs r1cs info circuit.r1cs 
+ 2047  ls
+ 2048  snarkjs wtns calculate circuit.wasm input.json witness.wtns
+ 2049  ls
+ 2050  snarkjs wtns debug circuit.wasm input.json witness.wtns circuit.sym --trigger --get --get
+ 2051  ls
+ 2052  snarkjs zkey new circuit.r1cs pot12_final.ptau circuit_0000.zkey
+ 2053  snarkjs zkey new circuit.r1cs pot15_final.ptau circuit_0000.zkey
+ 2054  snarkjs zkey contribute circuit_0000.zkey circuit_0001.zkey --name="1st Contributor Name" -v
+ 2055  snarkjs zkey contribute circuit_0001.zkey circuit_0002.zkey --name="Second contribution Name" -v -e="Another random entropy"
+ 2056  snarkjs zkey contribute circuit_0003.zkey circuit_0003.zkey --name="Second 324contribution Name" -v -e="Another random 324entropy"
+ 2057  snarkjs zkey contribute circuit_0002.zkey circuit_0003.zkey --name="Second 324contribution Name" -v -e="Another random 324entropy"
+ 2058  snarkjs zkey verify circuit.r1cs pot12_final.ptau circuit_0003.zkey
+ 2059  snarkjs zkey verify circuit.r1cs pot15_final.ptau circuit_0003.zkey
+ 2060  cp circuit_0003.zkey circuit_final.zkey
+ 2061  snarkjs zkey export verificationkey circuit_final.zkey verification_key.json
+ 2062  snarkjs groth16 prove circuit_final.zkey witness.wtns proof.json public.json
+ 2063  snarkjs groth16 verify verification_key.json public.json proof.json
+ 2064  snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
+ 2065  ls
+ 2066  snarkjs zkey export soliditycalldata public.json proof.json
+ 2067  ls
+ 2068  cp verifier.sol ../../../preverifier/packages/hardhat/contracts/
+ 2069  ls
+ 2070  cd ../../../preverifier/
+ 2071  ls
+ 2072  cd packages/hardhat/
+ 2073  ls
+ 2074  cd contracts/
+ 2075  ls
+ 2076  history > ../../../history.txt

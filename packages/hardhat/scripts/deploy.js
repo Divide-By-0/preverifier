@@ -8,42 +8,54 @@ const R = require("ramda");
 const main = async () => {
   console.log("\n\n 📡 Deploying...\n");
 
-  // const yourContract = await deploy("YourContract"); // <-- add in constructor args like line 16 vvvv
-  const verifier = await deploy("Verifier"); // <-- add in constructor args like line 16 vvvv
-  const answer = await verifier.verifyProof(
-    [0, 0],
-    [
-      [0, 0],
-      [0, 0],
-    ],
-    [0, 0],
-    [0]
+  // const yourContract = await deploy("YourContract");
+  const pairing = await deploy("Pairing");
+  const contractStorage = await deploy("ContractStorage");
+  const sigCheckG1Points_0_to_209 = await deploy("SigCheckG1Points_0_to_209");
+  const sigCheckG1Points_210_to_419 = await deploy(
+    "SigCheckG1Points_210_to_419"
   );
-  console.log("Answer %d", answer);
-  const answerProof = await verifier.verifyProof(
-    [
-      "4361411925896965367605188229838998950263853136855346992467135739885658267696",
-      "13257099796368377884239053786098576403291418420491903938520425819032342163253",
-    ],
-    [
-      [
-        "355657094392399070471888802703298304910289742627615590482317587855574212887",
-        "18902941826585626765735372290361041829879114965587413026743546969772770223876",
-      ],
-      [
-        "13731278056551524092357955801477541602113079924446007945952289832061866034192",
-        "13106205535807614907890129305427976444228090794559356293569824662995492606937",
-      ],
-    ],
-    [
-      "21774462880132019255699369884329895527898019522261256262898267301315861027775",
-      "15614619098166954992718084438573501156888533386051577366658259130763179956607",
-    ],
-    [
-      "7713112592372404476342535432037683616424591277138491596200192981572885523208",
-    ]
+  const sigCheckG1Points_420_to_629 = await deploy(
+    "SigCheckG1Points_420_to_629"
   );
-  console.log("Answer %d", answerProof);
+  const sigCheckG1Points_630_to_826 = await deploy(
+    "SigCheckG1Points_630_to_826"
+  );
+
+  const sigCheckVerifier = await deploy(
+    "SigCheckVerifier",
+    [],
+    {},
+    {
+      SigCheckG1Points_0_to_209: sigCheckG1Points_0_to_209.address,
+      SigCheckG1Points_210_to_419: sigCheckG1Points_210_to_419.address,
+      SigCheckG1Points_420_to_629: sigCheckG1Points_420_to_629.address,
+      SigCheckG1Points_630_to_826: sigCheckG1Points_630_to_826.address,
+      // Pairing: pairing.address,
+    }
+  );
+
+  const hashVerifier = await deploy(
+    "HashVerifier",
+    [],
+    {},
+    {
+      // Pairing: pairing.address,
+    }
+  );
+
+  const coreValidator = await deploy(
+    "CoreValidator",
+    [],
+    {},
+    {
+      SigCheckVerifier: sigCheckVerifier.address,
+      HashVerifier: hashVerifier.address,
+    }
+  );
+
+  // const coreValidator = await deploy("CoreValidator");
+
   // const exampleToken = await deploy("ExampleToken")
   // const examplePriceOracle = await deploy("ExamplePriceOracle")
   // const smartContractWallet = await deploy("SmartContractWallet",[exampleToken.address,examplePriceOracle.address])
@@ -75,11 +87,19 @@ const main = async () => {
   );
 };
 
-const deploy = async (contractName, _args = [], overrides = {}) => {
+const deploy = async (
+  contractName,
+  _args = [],
+  overrides = {},
+  libraries = {}
+) => {
   console.log(` 🛰  Deploying: ${contractName}`);
 
   const contractArgs = _args || [];
-  const contractArtifacts = await ethers.getContractFactory(contractName);
+
+  const contractArtifacts = await ethers.getContractFactory(contractName, {
+    libraries: libraries,
+  });
   const deployed = await contractArtifacts.deploy(...contractArgs, overrides);
   const encoded = abiEncodeArgs(deployed, contractArgs);
   fs.writeFileSync(`artifacts/${contractName}.address`, deployed.address);
@@ -142,3 +162,7 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+module.exports = {
+  deploy,
+};
